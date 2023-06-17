@@ -649,6 +649,14 @@ FORCE_INLINE void _draw_bed_status(const bool blink) {
   _draw_heater_status(H_BED, TERN0(HAS_LEVELING, blink && planner.leveling_active) ? '_' : LCD_STR_BEDTEMP[0], blink);
 }
 
+#if USE_FAN_FOR_SPINDLE
+  FORCE_INLINE void _draw_spindle_status() {
+    lcd_put_u8str(F("SPINDLE PWM : "));
+    lcd_put_u8str(i8tostr3rj(thermalManager.scaledFanSpeedPercent(0)));
+    lcd_put_u8str(F("%"));
+  }
+#endif
+
 #if HAS_CUTTER
 
   FORCE_INLINE void _draw_cutter_status() {
@@ -935,6 +943,10 @@ void MarlinUI::draw_status_screen() {
         //
         lcd_moveto(0, 0);
         _draw_cutter_status();
+
+      #elif USE_FAN_FOR_SPINDLE
+        lcd_moveto(0,0);
+        _draw_spindle_status();
 
       #endif
 
