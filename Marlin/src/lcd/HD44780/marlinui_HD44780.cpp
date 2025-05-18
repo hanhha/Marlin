@@ -1208,8 +1208,10 @@ void MarlinUI::draw_status_screen() {
     lcd_moveto(0, 1);
     _draw_axis_value(Z_AXIS, ftostr52sp(LOGICAL_Z_POSITION(current_position.z)), blink);
 
+    #if HAS_I_AXIS
     lcd_moveto(LCD_WIDTH - 9, 1);
     _draw_axis_value(I_AXIS, ftostr52sp(LOGICAL_I_POSITION(current_position.i)), blink);
+    #endif
 
     // ========== Line 3 ==========
     lcd_moveto(0, 2);
