@@ -410,6 +410,16 @@ void menu_main() {
       SUBMENU(MSG_PREHEAT_CUSTOM, menu_preheat_only);
     #endif
 
+    #if ENABLED(CUSTOM_MENU_MAIN)
+      if (TERN1(CUSTOM_MENU_MAIN_ONLY_IDLE, !busy)) {
+        #ifdef CUSTOM_MENU_MAIN_TITLE
+          SUBMENU_F(F(CUSTOM_MENU_MAIN_TITLE), custom_menus_main);
+        #else
+          SUBMENU(MSG_CUSTOM_COMMANDS, custom_menus_main);
+        #endif
+      }
+    #endif
+
     SUBMENU(MSG_MOTION, menu_motion);
 
     #if ANY(HAS_LEVELING, HAS_BED_PROBE, ASSISTED_TRAMMING_WIZARD, LCD_BED_TRAMMING)
@@ -448,16 +458,6 @@ void menu_main() {
   #endif
 
   SUBMENU(MSG_CONFIGURATION, menu_configuration);
-
-  #if ENABLED(CUSTOM_MENU_MAIN)
-    if (TERN1(CUSTOM_MENU_MAIN_ONLY_IDLE, !busy)) {
-      #ifdef CUSTOM_MENU_MAIN_TITLE
-        SUBMENU_F(F(CUSTOM_MENU_MAIN_TITLE), custom_menus_main);
-      #else
-        SUBMENU(MSG_CUSTOM_COMMANDS, custom_menus_main);
-      #endif
-    }
-  #endif
 
   #if ENABLED(LED_CONTROL_MENU)
     SUBMENU(MSG_LIGHTS, menu_led);
