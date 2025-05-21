@@ -1574,10 +1574,10 @@
   #define MANUAL_MOVE_DISTANCE_DEG             90, 45, 22.5, 5, 1  // (°)
 
   // BACK menu items keep the highlight at the top
-  //#define TURBO_BACK_MENU_ITEM
+  #define TURBO_BACK_MENU_ITEM
 
   // BACK menu items show "Back" instead of the previous menu name
-  //#define GENERIC_BACK_MENU_ITEM
+  #define GENERIC_BACK_MENU_ITEM
 
   // Insert a menu for preheating at the top level to allow for quick access
   //#define PREHEAT_SHORTCUT_MENU_ITEM
@@ -1754,7 +1754,7 @@
   //#define ONE_CLICK_PRINT                 // Prompt to print the newest file on inserted media
   //#define BROWSE_MEDIA_ON_INSERT          // Open the file browser when media is inserted
 
-  //#define MEDIA_MENU_AT_TOP               // Force the media menu to be listed on the top of the main menu
+  #define MEDIA_MENU_AT_TOP               // Force the media menu to be listed on the top of the main menu
 
   #define EVENT_GCODE_SD_ABORT "G28XY"      // G-code to run on SD Abort Print (e.g., "G28XY" or "G27")
 
@@ -4076,8 +4076,8 @@
   #define CUSTOM_MENU_MAIN_TITLE "Quick controls"
   #define CUSTOM_MENU_MAIN_SCRIPT_DONE "Quick control done"
   //#define CUSTOM_MENU_MAIN_SCRIPT_AUDIBLE_FEEDBACK
-  //#define CUSTOM_MENU_MAIN_SCRIPT_RETURN   // Return to status screen after a script
-  #define CUSTOM_MENU_MAIN_ONLY_IDLE         // Only show custom menu when the machine is idle
+  #define CUSTOM_MENU_MAIN_SCRIPT_RETURN   // Return to status screen after a script
+  //#define CUSTOM_MENU_MAIN_ONLY_IDLE         // Only show custom menu when the machine is idle
 
   #define MAIN_MENU_ITEM_3_DESC "Set Zero here"
   #define MAIN_MENU_ITEM_3_GCODE "G92 X0 Y0 Z0"
