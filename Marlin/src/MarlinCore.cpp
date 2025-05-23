@@ -1141,6 +1141,10 @@ inline void tmc_standby_setup() {
  *  - Set Marlin to RUNNING State
  */
 void setup() {
+  #if ENABLED(SPINDLE_LASER_USE_PWM)
+    OUT_WRITE(SPINDLE_LASER_PWM_PIN, 0);
+  #endif
+
   #ifdef FASTIO_INIT
     FASTIO_INIT();
   #endif
